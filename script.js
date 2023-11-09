@@ -5,41 +5,43 @@ const quoteText = document.getElementById("quote");
 const authorText = document.getElementById("author");
 const xTwitterButton = document.getElementById("x-twitter");
 const newQuoteButton = document.getElementById("new-quote");
-const heartLoader = document.getElementById("heart-loader");
-const innerHeartLoader = document.getElementById("inner-heart-loader");
+const loader = document.getElementById("loader");
 
 let apiQuotes = [];
 
 // Show Heart Loader
 
 function loading() {
-  heartLoader.hidden = false;
+  loader.hidden = false;
   quoteContainer.hidden = true;
-  innerHeartLoader.hidden = false
 }
 
 function complete() {
-  heartLoader.style.display = true;
+  loader.hidden = true;
   quoteContainer.hidden = false;
-  innerHeartLoader.hidden = true
-
 }
 
-// Select a Random Quote and assign it to quote and author id
+// Select a Random Quote from the array.
 
 function newQuote() {
-  loading()
   let randomQuote = Math.floor(Math.random() * apiQuotes.length);
   let quote = apiQuotes[randomQuote];
 
+  // If the length of quote exceeds 120 character then reduce the size of the quote.
+  if (quote.text.length > 120) {
+    quoteText.classList.add("long-quote");
+  } else {
+    quoteText.classList.remove("long-quote");
+  }
+
   quoteText.textContent = quote.text;
   authorText.textContent = quote.author;
-  complete()
+  complete();
 }
 
 // Get Quotes from API
 async function getQuotes() {
-  loading()
+  loading();
   const apiUrl = "https://jacintodesign.github.io/quotes-api/data/quotes.json";
   try {
     const response = await fetch(apiUrl);

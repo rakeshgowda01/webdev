@@ -55,7 +55,8 @@ body {
 
 button {
   cursor: pointer;
-  font-size: 1,2rem;
+  font-family: Montserrat Alternates, sans-serif;
+  font-size: 1.2rem;
   height: 2.5rem;
   border: none;
   border-radius: 10px;
@@ -80,60 +81,27 @@ button:active {
 }
 
 /* Loader */
+.loader {
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid rgb(0, 238, 255);
+  border-right: 16px solid rgb(120, 168, 75);
+  border-bottom: 16px solid rgb(255, 208, 0);
+  border-left: 16px solid rgb(235, 192, 255);
+  width: 120px;
+  height: 120px;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+}
 
-.heart-loader {
-  display: inline-block;
-  position: relative;
-  width: 80px;
-  height: 80px;
-  transform: rotate(45deg);
-  transform-origin: 40px 40px;
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
 }
-.heart-loader div {
-  top: 32px;
-  left: 32px;
-  position: absolute;
-  width: 32px;
-  height: 32px;
-  background: #f39191;
-  animation: lds-heart 1.2s infinite cubic-bezier(0.215, 0.61, 0.355, 1);
-}
-.heart-loader div:after,
-.heart-loader div:before {
-  content: " ";
-  position: absolute;
-  display: block;
-  width: 32px;
-  height: 32px;
-  background: #f39191;
-}
-.heart-loader div:before {
-  left: -24px;
-  border-radius: 50% 0 0 50%;
-}
-.heart-loader div:after {
-  top: -24px;
-  border-radius: 50% 50% 0 0;
-}
-@keyframes lds-heart {
-  0% {
-    transform: scale(0.95);
-  }
-  5% {
-    transform: scale(1.1);
-  }
-  39% {
-    transform: scale(0.85);
-  }
-  45% {
-    transform: scale(1);
-  }
-  60% {
-    transform: scale(0.95);
-  }
-  100% {
-    transform: scale(0.9);
-  }
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
 
