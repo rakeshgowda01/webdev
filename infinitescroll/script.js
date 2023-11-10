@@ -72,7 +72,7 @@ window.addEventListener("scroll", () => {
   // offsetHeight: Height of everything in the body, including what is not within view.
 
   if (
-    window.innerHeight + window.scrollY >= document.body.offsetHeight - 500 &&
+    window.innerHeight + window.scrollY >= document.body.offsetHeight - 1000 &&
     ready
   ) {
     ready = false;
