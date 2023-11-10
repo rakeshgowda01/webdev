@@ -56,12 +56,11 @@ async function getUnsplashImages() {
     API_URL = `https://api.unsplash.com/search/photos?client_id=${API_KEY}&page=${page}&query=${QUERY}`
     const response = await fetch(API_URL);
     const data = await response.json();
-    console.log(data)
     totalPages = data.total_pages
     photosArray = data.results;
     displayPhotos();
   } catch (error) {
-    console.log(error.msg);
+    window.alert("Please try again later. ;)")
   }
 }
 
@@ -73,7 +72,7 @@ window.addEventListener("scroll", () => {
   // offsetHeight: Height of everything in the body, including what is not within view.
 
   if (
-    window.innerHeight + window.scrollY >= document.body.offsetHeight - 100 &&
+    window.innerHeight + window.scrollY >= document.body.offsetHeight - 500 &&
     ready
   ) {
     ready = false;
